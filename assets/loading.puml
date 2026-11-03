@@ -1,0 +1,15 @@
+@startuml loading
+!pragma layout smetana
+top to bottom direction
+!include _style.iuml
+title How a skill loads (progressive disclosure)
+
+rectangle "Level 1: metadata\nname + description of every skill\nabout 100 tokens each, always loaded" as L1
+rectangle "User request matches a description\n(or the user types /skill-name)" as M
+rectangle "Level 2: SKILL.md body\nloaded on trigger, under 5k tokens" as L2
+rectangle "Level 3: resources\nreferences/ read, scripts/ run,\nassets/ copied, only when needed" as L3
+
+L1 --> M : model decides
+M --> L2 : reads SKILL.md
+L2 -right-> L3 : on demand
+@enduml

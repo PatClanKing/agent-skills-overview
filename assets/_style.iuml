@@ -1,0 +1,33 @@
+' Shared look and feel. Include from every diagram so that a family of
+' diagrams stays visually comparable and only one file changes the style:
+'   !include _style.iuml
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam shadowing false
+skinparam roundcorner 6
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #37474F
+
+' Spacing is set globally here rather than by padding individual arrows.
+skinparam nodesep 20
+skinparam ranksep 55
+
+skinparam rectangle {
+  BorderColor #37474F
+  BackgroundColor #ECEFF1
+  FontColor #102027
+  BorderThickness 1
+}
+skinparam package {
+  BorderColor #607D8B
+  BackgroundColor #FAFAFA
+  FontColor #263238
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #FFB300
+  FontSize 11
+}

@@ -1,0 +1,17 @@
+@startuml layout
+!pragma layout smetana
+top to bottom direction
+!include _style.iuml
+title Standard skill folder
+
+package "my-skill/ (folder name = name field)" {
+  rectangle "SKILL.md\nYAML frontmatter: name, description\nMarkdown body: the instructions" as S
+  rectangle "scripts/\ncode Claude runs, output only\nenters context" as SC
+  rectangle "references/\ndocs read only when needed" as R
+  rectangle "assets/\ntemplates, fonts, images\nused in the output" as A
+}
+
+S --> SC : runs
+S --> R : reads
+S --> A : copies
+@enduml

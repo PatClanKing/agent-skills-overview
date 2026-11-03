@@ -1,0 +1,26 @@
+@startuml flow-user
+!include _style.iuml
+hide footbox
+title Example 1: the user asks, the main agent loads the skill
+
+actor "User" as U
+participant "Claude Code\n(main agent)" as C
+participant "release-notes\nskill folder" as S
+participant "Shell" as SH
+
+note over C : knows only the name and\ndescription of every skill
+U -> C : "write release notes since v1.2"\nor /release-notes v1.2
+activate C
+C -> S : description matches:\nload SKILL.md (Skill tool)
+activate S
+S -> SH : run !`git log ...` lines
+SH --> S : output pasted into the body
+S --> C : full instructions, $tag = v1.2
+deactivate S
+C -> S : read assets/template.md
+C -> SH : python scripts/check.py NOTES.md
+SH --> C : PASS
+C --> U : release notes
+deactivate C
+note over C : the skill stays in context\nfor the rest of the conversation
+@enduml
