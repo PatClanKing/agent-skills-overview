@@ -1,6 +1,6 @@
 # Agent Skills
 
-<!-- readme: ignore-acronyms CLAUDE SKILL PASS FAIL -->
+<!-- readme: ignore-acronyms CLAUDE SKILL PASS FAIL VS -->
 
 This repository is an overview of agent skills: what they are, how they load, the standard folder layout, every option a `SKILL.md` can set, best practices, the top five pros and cons, and ranked links to the official documentation, with block diagrams throughout.
 
@@ -67,12 +67,18 @@ These are ranked by how likely each is to cause a real problem.
 
 ### 1.2 Where skills live
 
-Claude Code finds skills in these places, listed from most to least specific. Codex reads the same format from `.agents/skills` instead.
+Claude Code finds skills in these places, listed from most to least specific. The diagrams in this README use these Claude Code paths.
 
 1. **Project:** `.claude/skills/<skill-name>/SKILL.md`, shared with everyone who clones the repository.
 2. **Personal:** `~/.claude/skills/<skill-name>/SKILL.md`, available in every project.
 3. **Plugin:** `<plugin>/skills/<skill-name>/SKILL.md`, installed from a marketplace such as `anthropics/skills`.
 4. **Enterprise:** pushed by managed settings in an organisation.
+
+Other agents read the same folder format from their own places. The list is ranked by how many agents share each folder, which matters when one repository serves several tools.
+
+1. **`.claude/skills/`** in a project or `~/.claude/skills/` in your home folder: read by Claude Code and by GitHub Copilot in Visual Studio Code (VS Code).
+2. **`.agents/skills/`** in a project or `~/.agents/skills/` in your home folder: read by OpenAI Codex and by Copilot in VS Code.
+3. **`.github/skills/`** in a project or `~/.copilot/skills/` in your home folder: read by Copilot in VS Code only.
 
 ### 1.3 Skills compared with neighbours
 
@@ -298,7 +304,8 @@ Every link below returned HTTP (Hypertext Transfer Protocol) 200 when this page 
 
 1. **Agent Skills specification**, the formal rules any tool must follow: https://agentskills.io/specification
 2. **OpenAI Codex skills guide**, how another vendor reads the same format: https://learn.chatgpt.com/docs/build-skills
-3. **skills.sh directory**, a searchable catalogue and installer across agents: https://skills.sh/
+3. **VS Code Copilot agent skills**, where Copilot looks for skills and how it loads them: https://code.visualstudio.com/docs/agent-customization/agent-skills
+4. **skills.sh directory**, a searchable catalogue and installer across agents: https://skills.sh/
 
 ### 5.3 Commentary
 

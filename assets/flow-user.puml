@@ -4,9 +4,9 @@ hide footbox
 title Example 1: the user asks, the main agent loads the skill
 
 actor "User" as U
-participant "Claude Code\n(main agent)" as C
-participant "release-notes\nskill folder" as S
-participant "Shell" as SH
+participant "<:robot:> Claude Code\n(main agent)" as C
+collections "<:file_folder:> .claude/skills/\nrelease-notes/" as S
+participant "<:desktop_computer:> Shell" as SH
 
 note over C : knows only the name and\ndescription of every skill
 U -> C : "write release notes since v1.2"\nor /release-notes v1.2
